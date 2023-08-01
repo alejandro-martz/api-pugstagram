@@ -13,13 +13,13 @@ pipeline {
     }
 
     stages {
-        stages('install') {
+        stage('install') {
             steps {
                 git 'https://github.com/alejandro-martz/api-pugstagram.git'
                 sh 'npm install'
             }
         }
-        stages('build') {
+        stage('build') {
             steps {
                 sh 'npm run build'
             }
