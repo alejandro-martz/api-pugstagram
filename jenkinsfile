@@ -1,0 +1,28 @@
+pipeline {
+    agent any
+
+    tools {
+        nodejs "node"
+    }
+
+    parameters {
+        string(name: 'container_name', defaultValue: 'api-pugstagram',description: 'nombre contenedor docker')
+        string(name: 'image_name', defaultValue: 'api-pugstagram', description: 'nombre de la imagen de docker')
+        string(name: 'tag_image', defaultValue: 'lts', description: 'Tag de la imagen de la pagina')
+        string(name: 'container_port', defaultValue: 80, description: 'Port del contenedor')
+    }
+
+    stages {
+        stages('install') {
+            steps {
+                git 'https://github.com/alejandro-martz/api-pugstagram.git'
+                sh 'npm install'
+            }
+        }
+        stages('build') {
+            steps {
+                sh 'npm run build'
+            }
+        }
+    }
+}
