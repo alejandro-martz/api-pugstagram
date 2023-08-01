@@ -9,7 +9,7 @@ pipeline {
         string(name: 'container_name', defaultValue: 'api-pugstagram',description: 'nombre contenedor docker')
         string(name: 'image_name', defaultValue: 'api-pugstagram', description: 'nombre de la imagen de docker')
         string(name: 'tag_image', defaultValue: 'lts', description: 'Tag de la imagen de la pagina')
-        string(name: 'container_port', defaultValue: 80, description: 'Port del contenedor')
+        string(name: 'container_port', defaultValue: '80', description: 'Port del contenedor')
     }
 
     stages {
